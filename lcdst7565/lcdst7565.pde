@@ -24,7 +24,7 @@ ST7565 lcd=new ST7565(4,5,6,7);
 void SETUP(){
   
   lcd.ON();
-  lcd.SET(25,0,0,0,0);
+  lcd.SET(24,0,0,0,4);// st7565
   lcd.Clear();
 }
 
