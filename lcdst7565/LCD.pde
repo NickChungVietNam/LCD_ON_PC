@@ -66,7 +66,7 @@ ASCII_NUMBER =0;
   }
   cells = new boolean[width_][height_];
   
- cellSize=width/WIDTH_LCD;
+
 }
 
 
