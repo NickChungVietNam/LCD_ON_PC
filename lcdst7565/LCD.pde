@@ -2144,9 +2144,22 @@ break;//thoát quét hàng dọc ngay lập tức
 
 
 }// quét xong hàng ngang
-
-
  }
+ //////////
+ 
+void Number_Ulong(int x,int y, long a,int select_font, int he_so_phong_to, boolean Color){
+   
+   Number_Long( x, y,  a,select_font, he_so_phong_to, Color);
+   
+ }
+void Number_Ulong(int x,int y, long a,int select_font, boolean Color){
+   
+   Number_Long( x, y,  a,select_font, Color);
+   
+   
+ }
+ ///////////
+ 
 };// class
 class ST7565 extends LCD_SCREEN{// khởi tạo class có tên ST7565
 
