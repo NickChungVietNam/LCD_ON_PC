@@ -803,6 +803,10 @@ private boolean NEGATIVE=true;
   void  Display(){
   redraw();
   }
+  
+  void  display(){
+  Display();
+  }
 void Clear(){
  
   for (int x=0; x<WIDTH_LCD; x++) {
@@ -815,6 +819,7 @@ void Clear(){
   }
   Display();
 }
+
 void AllPixel(){
   
         
@@ -829,6 +834,8 @@ void AllPixel(){
   }
   Display();
 }
+
+
 
   void  my_drawpixel(int x,int y, boolean Color){
      if(NEGATIVE==true){
@@ -1543,6 +1550,37 @@ char c;
 
 }
 
+void Asc_String(int  x1, int y1, String s ,int he_so_phong_to, boolean Color) {
+
+
+if(he_so_phong_to==1){
+Asc_String( x1,  y1, s ,Color) ;
+return;///thoát
+
+}
+
+int x=x1;
+ char c;
+
+  int L=s.length();
+
+  for(int  i=0; i<L;i++){
+    c=s.charAt(i);
+    // Mời bạn tìm hiểu thêm cách lưu biến tĩnh vào bộ nhớ flash trên trang arduino.vn
+    Asc_Char(x, y1, c,he_so_phong_to, Color);
+    //Serial.print16_tln(c[i]);
+   
+    x += 6*he_so_phong_to; // 6 pixels wide
+    if (x + 6*he_so_phong_to >=  WIDTH_LCD  ){
+      x = x1;    // ran out of this line
+      y1+=8*he_so_phong_to;
+    }
+    if ( y1 >HEIGHT_LCD)
+      return;        // dừng vòng lặp
+  }
+
+}
+
 ////////
 public int Font_width, Font_high,Font_column_bitmap;// cài kích thước cho font được chọn
  
@@ -1927,6 +1965,34 @@ my_drawpixel( x0+w*he_so_phong_to+i,y0+h*he_so_phong_to+j, Color);
   ////////////////
   
   
+void Uni_String(int x1, int y1, String s , int he_so_phong_to ,boolean Color) {
+if(he_so_phong_to==1){
+Uni_String( x1,  y1, s ,Color) ;
+return;///thoát
+
+}
+
+int x=x1;
+char c;// kiểu char 16 bít(  2 bytes)
+int L=s.length();
+for(int i=0; i<L ;i++){
+  
+ c=s.charAt(i);
+    Uni_Char(x, y1, c, he_so_phong_to,  Color);
+    //Serial.print16_tln(c[i]);
+    
+    x += 7*he_so_phong_to; // 7 pixels wide
+    if (x + 7*he_so_phong_to >=  WIDTH_LCD  ){
+      x = x1;    // ran out of this line
+      y1+=15*he_so_phong_to;
+    }
+    if ( y1 > HEIGHT_LCD)
+      return;        // dừng vòng lặp
+  }
+
+}
+
+
   
   
   void Number_Long(int x,int y, long a,int select_font, int he_so_phong_to, boolean Color){
