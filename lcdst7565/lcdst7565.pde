@@ -3,7 +3,7 @@
 
 void setup() {size (1025, 600); set_lcd(128,64); stroke(150); noSmooth(); background(0); noLoop();}
 void draw() {UPDATE_LCD(); }
-void mousePressed() { SETUP();SET_TIME();  while(true){ LOOP();}}
+void mousePressed() { SETUP();SET_TIME();  while(true){ LOOP(); delay(2);}}
 
 ///////////////////////////////////////////
 // Từ thành công của 2 bộ thư viện lcd, do nhu cầu của công việc và mong muốn từ phía cộng đồng
