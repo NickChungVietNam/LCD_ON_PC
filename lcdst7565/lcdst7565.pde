@@ -84,6 +84,7 @@ void LOOP(){
 
  // lcd.draw_single_number(30,10,4,ASCII_NUMBER,BLACK);
    //lcd.Number_Long( 10,10,-454765,ASCII_NUMBER,BLACK);
+  // lcd.Number_Ulong( 10,10,454765,ASCII_NUMBER,BLACK);
    //lcd.Number_Float(10,10,67.87678, 5,ASCII_NUMBER, BLACK);
 //   lcd.Uni_Char(10,10,'Ệ',BLACK);
 //lcd.Uni_String(10,10," ò ó o" , BLACK);
