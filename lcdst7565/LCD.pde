@@ -31,7 +31,7 @@ boolean[][] cells;
 int START_MILLIS=0;
 void SET_TIME(){
  START_MILLIS=millis();
-  
+  delay(50);
   
 }
 
@@ -66,7 +66,6 @@ ASCII_NUMBER =0;
   }
   cells = new boolean[width_][height_];
   
-
 }
 
 
@@ -112,17 +111,16 @@ color CLEAR_COLOR = color(COLOR_CLEAR);
     for (int y=0; y<HEIGHT_LCD; y++) {
       if(cells[x][y]==true){
         
-    fill(DRAW_COLOR); // If alive
+    fill(DRAW_COLOR); // 
       }else{
         
-    fill(CLEAR_COLOR); // If alive
+    fill(CLEAR_COLOR); // 
       }
      
       rect (x*cellSize, y*cellSize, cellSize, cellSize);
         
     }
   }
-  
 }
 /////////////////////////////////////////////////
 
@@ -1504,6 +1502,21 @@ boolean non=!Color;
 }
 
 }
+
+
+void  Asc_Char(int x1, int y1, int c , boolean Color) {
+   Asc_Char(x1,y1, (char)c, Color);
+}
+
+
+void Asc_Char(int x1, int y1, char c,int he_so_phong_to,  boolean Color) {
+Asc_Char( x1,  y1, c , Color);// vẽ
+
+//rồi phóng to
+if(he_so_phong_to>1){
+phong_to(x1,y1, 5,7, he_so_phong_to, Color );// kích thước của font ascii trong thư viejn này là 5x7 cho mỗi kí tự
+}
+}
 /////////
 void Asc_String(int x1, int y1, String s , boolean Color) {
 
@@ -1799,6 +1812,36 @@ read_bit_ki_tu=READ_BIT(  vietnamese_vowel_table[tim_byte_phu_am+ enter],j%8);//
 
 }
 //////////////
+
+
+
+void Uni_Char(int x1, int y1, int c, boolean Color){ 
+Uni_Char( x1, y1, (char)c, Color);
+
+  
+  
+}
+void Uni_Char(int x1, int y1, char c, int he_so_phong_to, boolean Color){ 
+
+Uni_Char( x1,  y1,  c,  Color);// vẽ trước
+if(he_so_phong_to>1){
+phong_to( x1,y1,6,15,he_so_phong_to, Color );// 
+// MÕI KÍ TỰ CÓ KÍCH THƯỚC 6x15 pixel
+}
+}
+
+
+void Uni_Char(int x1, int y1, int c, int he_so_phong_to, boolean Color){ 
+
+Uni_Char( x1,  y1,  (char)c,  Color);// vẽ trước
+if(he_so_phong_to>1){
+phong_to( x1,y1,6,15,he_so_phong_to, Color );// 
+// MÕI KÍ TỰ CÓ KÍCH THƯỚC 6x15 pixel
+}
+}
+
+///////////
+
 
 void Uni_String(int x1, int y1, String s , boolean Color) {
 int x=x1;
@@ -2144,9 +2187,11 @@ break;//thoát quét hàng dọc ngay lập tức
 
 
 }// quét xong hàng ngang
+
+
  }
- //////////
  
+ ////////////////////////
 void Number_Ulong(int x,int y, long a,int select_font, int he_so_phong_to, boolean Color){
    
    Number_Long( x, y,  a,select_font, he_so_phong_to, Color);
@@ -2158,7 +2203,8 @@ void Number_Ulong(int x,int y, long a,int select_font, boolean Color){
    
    
  }
- ///////////
+ ////////
+ 
  
 };// class
 class ST7565 extends LCD_SCREEN{// khởi tạo class có tên ST7565
