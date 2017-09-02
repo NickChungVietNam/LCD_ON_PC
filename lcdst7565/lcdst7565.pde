@@ -1,7 +1,7 @@
 
 
 
-void setup() {size (1025, 600); set_lcd(128,64); stroke(150); noSmooth(); background(0); noLoop();}
+void setup() {size (1025, 600); frameRate(40); set_lcd(128,64); stroke(150); noSmooth(); background(0); noLoop();}
 void draw() {UPDATE_LCD(); }
 void mousePressed() { SETUP();SET_TIME();  while(true){ LOOP(); delay(2);}}
 
